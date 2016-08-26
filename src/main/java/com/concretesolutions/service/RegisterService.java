@@ -18,8 +18,13 @@ public class RegisterService {
     @Autowired
     private RegisterRepository repository;
 
+    //TODO Refactor to make the merge in another class; remove the mocked token
     public Response saveUser(User user) {
-        Response response = new Response("1", new Date(), null, new Date(), "fiushfushfhsjfhdsjkfhuefhkahlfawjeÇIJR83O");
+        String token = "5ee946dc11508b1d5638fed1cc226cdf";
+        Date created = new Date();
+        User u = new User(user.getName(), user.getEmail(), user.getPassword(), token, created, null, created, user.getPhones());
+        User saved = repository.save(u);
+        Response response = new Response(saved.getId().toString(), saved.getCreated(), saved.getModified(), saved.getLast_login(), saved.getToken());
         return response;
     }
 

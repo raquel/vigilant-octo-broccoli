@@ -17,8 +17,9 @@ import java.util.UUID;
 public class User {
 
     @Id
-    @GeneratedValue(generator="system-uuid")
-    @GenericGenerator(name="system-uuid", strategy = "uuid")
+//    @GeneratedValue(generator="system-uuid")
+//    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private Long id;
 
@@ -47,7 +48,7 @@ public class User {
     private List<Phone> phones;
 
     public User(){}
-    
+
     public User(String name, String email, String password, String token, Date created, Date modified, Date last_login, List<Phone> phones) {
         this.name = name;
         this.email = email;
