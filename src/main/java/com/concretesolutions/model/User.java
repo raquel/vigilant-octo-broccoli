@@ -46,6 +46,8 @@ public class User {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Phone> phones;
 
+    public User(){}
+    
     public User(String name, String email, String password, String token, Date created, Date modified, Date last_login, List<Phone> phones) {
         this.name = name;
         this.email = email;
