@@ -9,4 +9,5 @@ public class VigilantOctoBroccoliApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(VigilantOctoBroccoliApplication.class, args);
 	}
+
 }
