@@ -1,13 +1,11 @@
 package com.concretesolutions.vo;
 
-/**
- * Created by raquel on 8/25/16.
- */
-public class Error {
+
+public class ErrorResponse extends Response {
 
     private final String message;
 
-    public Error(String message) {
+    public ErrorResponse(String message) {
         this.message = message;
     }
 

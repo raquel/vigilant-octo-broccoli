@@ -2,9 +2,6 @@ package com.concretesolutions.model;
 
 import javax.persistence.*;
 
-/**
- * Created by raquel on 8/26/16.
- */
 @Entity
 @Table(name = "phones")
 public class Phone {
