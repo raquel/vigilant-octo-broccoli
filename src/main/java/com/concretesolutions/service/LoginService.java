@@ -2,7 +2,6 @@ package com.concretesolutions.service;
 
 import com.concretesolutions.model.User;
 import com.concretesolutions.repository.LoginRepository;
-import com.concretesolutions.util.Encryption;
 import com.concretesolutions.vo.ErrorResponse;
 import com.concretesolutions.vo.LoginRequest;
 import com.concretesolutions.vo.Response;
@@ -17,11 +16,11 @@ public class LoginService {
     private LoginRepository repository;
 
     @Autowired
-    private Encryption encryption;
+    private CryptoService cryptoService;
 
     public Response authenticate(LoginRequest login) {
         User user = repository.findByEmail(login.getEmail());
-        if(user.getPassword().equals(encryption.encyptPassword(login.getPassword()))) {
+        if(user.getPassword().equals(cryptoService.encyptPassword(login.getPassword()))) {
             SuccessResponse response = new SuccessResponse(user.getId().toString(), user.getCreated(), user.getModified(), user.getLast_login(), user.getToken());
             return response;
         }
